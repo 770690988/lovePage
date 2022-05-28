@@ -1,0 +1,84 @@
+@font-face {
+    font-family: 'biubiuxtzfont';
+    src: url('../../font/FZXIANGSU12.TTF');
+}
+
+body {
+    background-color: rgb(247, 247, 247);
+}
+
+#div1 {
+    /* position: relative; */
+    text-align: center;
+    margin: 0 auto;
+}
+
+.loveName1 {
+    display: inline;
+    color: rgb(42, 159, 2110);
+    font-weight: bold;
+    font-size: 110px;
+    top: 0%;
+    height: 60px;
+    font-family: "biubiuxtzfont";
+}
+
+.loveName2 {
+    display: inline;
+    color: rgb(255,0,0);
+    font-weight: bold;
+    font-size: 110px;
+    height: 110px;
+    font-family: "biubiuxtzfont";
+}
+
+.loveName3 {
+    display: inline;
+    color: #f9b3e5;
+    font-weight: bold;
+    font-size: 110px;
+    height: 110px;
+    font-family: "biubiuxtzfont";
+}
+
+.lTime {
+    /* width: 35%; */
+    font-family: "STXingka";
+    margin: 0 auto;
+    margin-top: 2vw;
+    text-align: center;
+    font-size: 50px;
+    
+}
+
+#author {
+    position: absolute;
+    left: 90%;
+    top: 90%;
+    text-align: center;
+}
+
+#countTimes{
+    position: absolute;
+    background-color: #addaff;
+    top: 5%;
+    margin: 0 auto;
+    min-height:20%;
+    width: max-content;
+    left: 10%;
+    padding: 2%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 30px;
+    border-width: 10px;
+    border-color: rgb(56, 40, 40);
+    z-index: 100;
+}
+
+#testBody{
+    margin-top: 10%;
+    background-color: #e7f4fc;
+    border-radius: 16px;
+    padding-top: 5%;
+}

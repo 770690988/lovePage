@@ -1,0 +1,37 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "925454",
+      "name": "对话",
+      "font_class": "duihua",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
+      "icon_id": "11349144",
+      "name": "love",
+      "font_class": "love",
+      "unicode": "e642",
+      "unicode_decimal": 58946
+    },
+    {
+      "icon_id": "14445904",
+      "name": "相册",
+      "font_class": "xiangce",
+      "unicode": "e76b",
+      "unicode_decimal": 59243
+    },
+    {
+      "icon_id": "17833687",
+      "name": "评论",
+      "font_class": "pinglun",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    }
+  ]
+}

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>BiuBiu&小桃子</title>
+    <script src="lib/gl-matrix.js"></script>
+    <script src="js/Clock.js"></script>
+    <script src="js/Shader.js"></script>
+    <script src="js/Render.js"></script>
+    <script src="js/Camera.js"></script>
+    <script src="js/Object3D.js"></script>
+    <script src="js/BasicsShader.js"></script>
+    <script src="js/Sadness.js"></script>
+	<script src="js/LetterData.js"></script>
+    <script src="js/Letter.js"></script>
+    <script src="js/FX.js"></script>
+    <script src="js/FXAA.js"></script>
+    <script src="js/FBO.js"></script>
+    <style>
+        html,body{
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow-y: hidden;
+            overflow-x: hidden;
+        }
+        canvas{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head><body></body>
+<script>
+
+    const render = new Sadness();
+    const clock = new Clock(loop);
+    const letterData = new LetterData();
+
+    /**
+     * 全部配置文件
+     */
+    window.wallpaperPropertyListener = {
+        applyUserProperties: function(p) {
+
+            // 文字
+            if (p.text) {
+                let ld = letterData.parseTitleStr(p.text.value);
+                ld = letterData.getAllData(ld);
+                render.setText(ld);
+            }
+
+            // 视距 10
+            if (p.viewdist) {
+                render.camera.setEyeFromDis(p.viewdist.value);
+            }
+
+            // 视角 0.8
+            if (p.viewrange) {
+                render.camera.range = p.viewrange.value * .01;
+            }
+
+            // 背景颜色 [0.22 0.22 0.22]
+            if (p.bgcolor) {
+                let color = p.bgcolor.value.split(' ');
+                render.cleanColor[0] = color[0];
+                render.cleanColor[1] = color[1];
+                render.cleanColor[2] = color[2];
+            }
+
+            // 投影强度 0.8
+            if (p.shadowlen) {
+                render.bgPower = p.shadowlen.value * .01;
+            }
+
+            // 色散强度 1
+            if (p.glitchpower) {
+                render.fboFx.glitchPowerR = p.glitchpower.value * .01;
+            }
+
+            // 暗角强度 1
+            if (p.darkpower) {
+                render.fboFx.darkPowerR = p.darkpower.value * .01;
+            }
+
+            // 文字采样率 64
+            if (p.textratio) {
+                letterData.setRatio(p.textratio.value);
+            }
+
+            // FXAA 开关 1
+            if (p.fxaa) {
+                render.fboFxaa.fxaaOn = p.fxaa.value ? 1 : 0;
+            }
+
+            // MSAA 抗锯齿 2
+            if (p.msaa) {
+                render.fboFx.MsLvl = p.msaa.value;
+                render.resize();
+            }
+
+            // 鼠标给与力的大小 1
+            if (p.mousef) {
+                render.mouseF = p.mousef.value * .01;
+            }
+
+            // 音乐给与力的大小 50
+            if (p.musicf) {
+                render.af = p.musicf.value * 10;
+            }
+
+            // 向心力的大小 1
+            if (p.centerf) {
+                render.centerF = p.centerf.value * .01;
+            }
+
+            // 随机力的大小 1
+            if (p.randomf) {
+                render.randomF = p.randomf.value * .01;
+            }
+
+            // 阻尼系数 1
+            if (p.mui) {
+                render.mui = p.mui.value * .01;
+            }
+
+            // 摄像机旋转范围 10
+            if (p.camerarrange) {
+                render.cameraRRange = p.camerarrange.value;
+            }
+
+            // 摄像机旋转平滑系数 0.1
+            if (p.camerarsmooth) {
+                render.cameraRSmooth = p.camerarsmooth.value * .01;
+            }
+        },
+
+        applyGeneralProperties: function (p) {
+
+            // 帧数限制
+            if (p.fps) {
+                clock.fps = p.fps;
+            }
+        }
+    };
+
+    /**
+     * 监听音频输入
+     * @param arr {Number[]}
+     */
+    function wallpaperAudioListener(arr){
+        render.applyForce(arr);
+    }
+
+    // 注册监听器
+    if (window.wallpaperRegisterAudioListener)
+    window.wallpaperRegisterAudioListener(wallpaperAudioListener);
+
+    letterData.setRatio(64);
+    letterData.loadText("pixel", "./font/FZXIANGSU12.TTF");
+
+    // 监听字体加载
+    letterData.onFrontLoad = () => {
+        clock.run();
+        wallpaperPropertyListener.applyUserProperties({text:{value:"biubiu(180,230,250)❤(255,0,0)小桃子(250,180,230)"}});
+    }
+
+    function loop(t){
+
+        // 更新渲染器
+        render.update(t);
+
+        // 更新视图矩阵
+        render.camera.generateMat(render.ratio);
+
+        // 更新字母
+        render.updateAllLetters(t);
+
+        // 鼠标更新
+        render.ctrlCamera();
+
+        // 第一次离屏渲染
+        render.fboFx.bind();
+        render.clean();
+        render.drawAllLetters();
+
+        // 第二次离屏渲染
+        render.fboFxaa.bind();
+        render.clean();
+        render.fboFx.draw(render.width, render.height);
+
+        // 最终绘制
+        render.gl.bindFramebuffer(render.gl.FRAMEBUFFER, null);
+        render.clean();
+        render.gl.viewport(0, 0, render.width, render.height);
+        render.fboFxaa.draw(render.width, render.height);
+    }
+
+    // 放置画布
+    document.body.appendChild(render.canvas);
+    
+    // 进入主页
+    let pointTimes = 0;
+    document.addEventListener("click",clicks,false);
+    function clicks(){
+        window.location = "./pages/index.html";
+    }
+</script>
+</html>

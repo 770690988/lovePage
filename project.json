@@ -1,0 +1,294 @@
+{
+	"contentrating" : "Everyone",
+	"description" : "An interactive 3D pixel text wallpaper with physical effects.\nYou can customize the title, color and others you want!!!\nThe title can dance happily with the music, enjoy it : )\n\n一款有着物理效果的可交互3D像素文字壁纸。\n你可以自定义你想要的标题、颜色和其他等等！！！\n标题可以随着音乐快乐的跳舞，希望你喜欢 : )\n\nRemarks:\n1. Use \"text(r,g,b)\" to define a colored text. The rgb color value is between 0-255. Like this, \"abc(255,0,0)\" a red \"abc\" appears!\n2. If you want to use \"(1,2,3)\" as the title, use \"\\\\\" escape, like \"\\\\(1,2,3)\".\n3. It is recommended that you use the \"SMAA\" anti aliasing here instead of the built-in \"SMAA\" in the Wallpaper Engine, because the \"SMAA\" here is specially optimized.\n\n备注\n1、使用“字(r,g,b)”来定义一个有颜色的文字，rgb颜色值在0-255之间，像这样“abc(255,0,0)”一个红色的“abc”就出现啦！\n2、如果你想将“(1,2,3)”作为标题，请使用“\\\\”转义，像这样“\\\\(1,2,3)”。\n3、建议你使用这里的“SMAA”抗锯齿，而不是Wallpaper Engine内置的“SMAA”，因为这里的“SMAA”做了特殊优化。",
+	"file" : "index.html",
+	"general" : 
+	{
+		"localization" : 
+		{
+			"en-us" : 
+			{
+				"ui_bgcolor" : "Background Color",
+				"ui_camerarrange" : "Camera Rotate",
+				"ui_camerarsmooth" : "Camera Smooth",
+				"ui_centerf" : "Centripetal Force",
+				"ui_darkpower" : "Vignetting",
+				"ui_fxaa" : "FXAA",
+				"ui_glitchpower" : "Dispersion",
+				"ui_mousef" : "Mouse Force",
+				"ui_msaa" : "MSAA",
+				"ui_mui" : "Damping",
+				"ui_musicf" : "Music Force",
+				"ui_randomf" : "Random Force",
+				"ui_shadowlen" : "Shadow",
+				"ui_text" : "Custom Title",
+				"ui_textratio" : "Text Sampling Rate",
+				"ui_viewdist" : "Focal Distance",
+				"ui_viewrange" : "FOV"
+			},
+			"ja-jp" : 
+			{
+				"ui_bgcolor" : "背景色",
+				"ui_camerarrange" : "カメラが回転する",
+				"ui_camerarsmooth" : "カメラスムーズ",
+				"ui_centerf" : "求心力",
+				"ui_darkpower" : "ケラレ",
+				"ui_fxaa" : "FXAA",
+				"ui_glitchpower" : "分散",
+				"ui_mousef" : "マウスフォース",
+				"ui_msaa" : "MSAA",
+				"ui_mui" : "ダンピング",
+				"ui_musicf" : "ミュージックフォース",
+				"ui_randomf" : "ランダムフォース",
+				"ui_shadowlen" : "シャドー",
+				"ui_text" : "カスタム タイトル",
+				"ui_textratio" : "テキストサンプルレート",
+				"ui_viewdist" : "焦点距離",
+				"ui_viewrange" : "FOV"
+			},
+			"zh-chs" : 
+			{
+				"ui_bgcolor" : "背景颜色",
+				"ui_camerarrange" : "摄像机旋转",
+				"ui_camerarsmooth" : "摄像机平滑",
+				"ui_centerf" : "向心力",
+				"ui_darkpower" : "暗角",
+				"ui_fxaa" : "FXAA",
+				"ui_glitchpower" : "色散",
+				"ui_mousef" : "鼠标力",
+				"ui_msaa" : "MSAA",
+				"ui_mui" : "阻尼",
+				"ui_musicf" : "音乐力",
+				"ui_randomf" : "随机力",
+				"ui_shadowlen" : "投影",
+				"ui_text" : "自定义标题",
+				"ui_textratio" : "文字采样率",
+				"ui_viewdist" : "视距",
+				"ui_viewrange" : "视野"
+			}
+		},
+		"properties" : 
+		{
+			"bgcolor" : 
+			{
+				"index" : 3,
+				"order" : 103,
+				"text" : "ui_bgcolor",
+				"type" : "color",
+				"value" : "0.2196078431372549 0.2196078431372549 0.2196078431372549"
+			},
+			"camerarrange" : 
+			{
+				"fraction" : true,
+				"index" : 13,
+				"max" : 89,
+				"min" : 0,
+				"order" : 113,
+				"precision" : 1,
+				"step" : 1,
+				"text" : "ui_camerarrange",
+				"type" : "slider",
+				"value" : 10
+			},
+			"camerarsmooth" : 
+			{
+				"fraction" : true,
+				"index" : 14,
+				"max" : 100,
+				"min" : 1,
+				"order" : 114,
+				"precision" : 1,
+				"step" : 1,
+				"text" : "ui_camerarsmooth",
+				"type" : "slider",
+				"value" : 10
+			},
+			"centerf" : 
+			{
+				"fraction" : true,
+				"index" : 10,
+				"max" : 400,
+				"min" : 0,
+				"order" : 110,
+				"precision" : 1,
+				"step" : 1,
+				"text" : "ui_centerf",
+				"type" : "slider",
+				"value" : 100
+			},
+			"darkpower" : 
+			{
+				"fraction" : true,
+				"index" : 6,
+				"max" : 400,
+				"min" : 0,
+				"order" : 106,
+				"precision" : 1,
+				"step" : 1,
+				"text" : "ui_darkpower",
+				"type" : "slider",
+				"value" : 100
+			},
+			"fxaa" : 
+			{
+				"index" : 16,
+				"order" : 116,
+				"text" : "ui_fxaa",
+				"type" : "bool",
+				"value" : true
+			},
+			"glitchpower" : 
+			{
+				"fraction" : true,
+				"index" : 5,
+				"max" : 400,
+				"min" : 0,
+				"order" : 105,
+				"precision" : 1,
+				"step" : 1,
+				"text" : "ui_glitchpower",
+				"type" : "slider",
+				"value" : 100
+			},
+			"mousef" : 
+			{
+				"fraction" : true,
+				"index" : 8,
+				"max" : 400,
+				"min" : 0,
+				"order" : 108,
+				"precision" : 1,
+				"step" : 1,
+				"text" : "ui_mousef",
+				"type" : "slider",
+				"value" : 100
+			},
+			"msaa" : 
+			{
+				"fraction" : true,
+				"index" : 15,
+				"max" : 8,
+				"min" : 1,
+				"order" : 115,
+				"precision" : 2,
+				"step" : 0.10000000000000001,
+				"text" : "ui_msaa",
+				"type" : "slider",
+				"value" : 2
+			},
+			"mui" : 
+			{
+				"fraction" : true,
+				"index" : 12,
+				"max" : 400,
+				"min" : 0,
+				"order" : 112,
+				"precision" : 1,
+				"step" : 1,
+				"text" : "ui_mui",
+				"type" : "slider",
+				"value" : 100
+			},
+			"musicf" : 
+			{
+				"fraction" : true,
+				"index" : 9,
+				"max" : 200,
+				"min" : 0,
+				"order" : 109,
+				"precision" : 1,
+				"step" : 1,
+				"text" : "ui_musicf",
+				"type" : "slider",
+				"value" : 50
+			},
+			"randomf" : 
+			{
+				"fraction" : true,
+				"index" : 11,
+				"max" : 400,
+				"min" : 0,
+				"order" : 111,
+				"precision" : 1,
+				"step" : 1,
+				"text" : "ui_randomf",
+				"type" : "slider",
+				"value" : 100
+			},
+			"schemecolor" : 
+			{
+				"order" : 0,
+				"text" : "ui_browse_properties_scheme_color",
+				"type" : "color",
+				"value" : "0 0 0"
+			},
+			"shadowlen" : 
+			{
+				"fraction" : true,
+				"index" : 4,
+				"max" : 100,
+				"min" : 0,
+				"order" : 104,
+				"precision" : 1,
+				"step" : 1,
+				"text" : "ui_shadowlen",
+				"type" : "slider",
+				"value" : 80
+			},
+			"text" : 
+			{
+				"index" : 0,
+				"order" : 100,
+				"text" : "ui_text",
+				"type" : "textinput",
+				"value" : "Editable(255,205,48)  Title  !!!(55,252,181)"
+			},
+			"textratio" : 
+			{
+				"fraction" : true,
+				"index" : 7,
+				"max" : 256,
+				"min" : 12,
+				"order" : 107,
+				"precision" : 1,
+				"step" : 1,
+				"text" : "ui_textratio",
+				"type" : "slider",
+				"value" : 64
+			},
+			"viewdist" : 
+			{
+				"fraction" : true,
+				"index" : 1,
+				"max" : 100,
+				"min" : 1,
+				"order" : 101,
+				"precision" : 1,
+				"step" : 1,
+				"text" : "ui_viewdist",
+				"type" : "slider",
+				"value" : 10
+			},
+			"viewrange" : 
+			{
+				"fraction" : true,
+				"index" : 2,
+				"max" : 180,
+				"min" : 20,
+				"order" : 102,
+				"precision" : 1,
+				"step" : 1,
+				"text" : "ui_viewrange",
+				"type" : "slider",
+				"value" : 80
+			}
+		},
+		"supportsaudioprocessing" : true
+	},
+	"preview" : "preview.gif",
+	"tags" : [ "Pixel art" ],
+	"title" : "Dancing Words [interactive 3D pixel text audio] [交互 像素 文字 音乐]",
+	"type" : "web",
+	"version" : 0,
+	"visibility" : "public"
+}

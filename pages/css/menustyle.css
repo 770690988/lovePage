@@ -1,0 +1,144 @@
+@import url('https://font.gooleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #fcc7e6;
+}
+
+.navigation {
+    position: fixed;
+    width: 60px;
+    height: 100%;
+    background: #adc9fd;
+    transition: 0.5s;
+    border-radius: 20px;
+    overflow: hidden;
+    z-index: 101;
+}
+
+.navigation:hover,
+.navigation.active {
+    width: 260px;
+}
+
+.navigation ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.navigation ul li {
+    position: relative;
+    width: 100%;
+    list-style: none;
+}
+
+.navigation ul li:hover {
+    background: #f7a2bf;
+    border-radius: 20px;
+}
+
+.navigation ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: rgb(48, 47, 47);
+}
+
+.navigation ul li a .iconfont {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+
+.navigation ul li a .title {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+.toggle {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background: #08358a;
+    cursor: pointer;
+    border-radius: 20px;
+    z-index: 101;
+}
+
+.toggle .iconfont {
+    font-family: iconfont;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 60px;
+    text-align: center;
+    font-size: 40px;
+    color: #fff;
+}
+
+.toggle.active {
+    background: #ea1d63;
+}
+
+#headTitle {
+    font-style: oblique;
+    font-size: 28px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    background-color: black;
+    text-align: center;
+    margin-left: 20px;
+    width: 500px;
+    border-radius: 20px;
+}
+
+@media (max-width:767px) {
+    .navigation {
+        left: -60px;
+    }
+    .navigation.active {
+        left: 0px;
+        width: 100%;
+    }
+}
+
+.mainText {
+    background: #0B3861;
+    position: relative;
+    top: 0;
+    height: 2000px;
+    border-radius: 20px;
+}
+
+#headTitle {
+    text-align: center;
+    font-style: oblique;
+    font-size: 28px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    background-color: black;
+    text-align: center;
+    margin-left: 20px;
+    width: 300px;
+    border-radius: 20px;
+}
